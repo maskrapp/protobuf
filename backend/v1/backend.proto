@@ -4,14 +4,37 @@ package backend.v1;
 
 option go_package="backend/v1";
 
+import "google/protobuf/empty.proto";
+
 service BackendService {
-    rpc SayHello (SayHelloRequest) returns (SayHelloResponse);
+    rpc CheckMask (CheckMaskRequest) returns (CheckMaskResponse);
+    rpc GetMask (GetMaskRequest) returns (GetMaskResponse);
+    rpc IncrementForwardedCount (IncrementForwardedCountRequest) returns (google.protobuf.Empty);
+    rpc IncrementReceivedCount (IncrementReceivedCountRequest) returns (google.protobuf.Empty);
 }
 
-message SayHelloRequest {
-     string message = 1;
+message CheckMaskRequest {
+    string mask_address = 1;
 }
 
-message SayHelloResponse {
-     string response = 1;
+message CheckMaskResponse {
+    bool valid = 1;
 }
+
+message GetMaskRequest {
+    string mask_address = 1;
+}
+
+message GetMaskResponse {
+    string forward_to = 1;
+    bool enabled = 2; 
+}
+
+message IncrementForwardedCountRequest {
+    string mask_address = 1;
+}
+
+message IncrementReceivedCountRequest {
+    string mask_address = 1;
+}
+
