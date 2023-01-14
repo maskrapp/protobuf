@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package backend.v1;
+
+option go_package="backend/v1";
+
+service BackendService {
+    rpc SayHello (SayHelloRequest) returns (SayHelloResponse);
+}
+
+message SayHelloRequest {
+     string message = 1;
+}
+
+message SayHelloResponse {
+     string response = 1;
+}
