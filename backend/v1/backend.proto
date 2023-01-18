@@ -26,7 +26,7 @@ message GetMaskRequest {
 }
 
 message GetMaskResponse {
-    string forward_to = 1;
+    string email = 1;
     bool enabled = 2; 
 }
 
