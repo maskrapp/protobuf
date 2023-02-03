@@ -1,12 +1,12 @@
 syntax = "proto3";
 
-package backend.v1;
+package main_api.v1;
 
-option go_package="backend/v1";
+option go_package="main_api/v1";
 
 import "google/protobuf/empty.proto";
 
-service BackendService {
+service MainAPIService {
     rpc CheckMask (CheckMaskRequest) returns (CheckMaskResponse);
     rpc GetMask (GetMaskRequest) returns (GetMaskResponse);
     rpc IncrementForwardedCount (IncrementForwardedCountRequest) returns (google.protobuf.Empty);
